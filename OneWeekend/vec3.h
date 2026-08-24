@@ -48,14 +48,49 @@ class vec3{
         }
 };
 
+// just to make things clearer using point3 to exclusively denote the points (location) as alias
+using point3 = vec3;
 
+// Vector Utility Functions used overall
+std::ostream& operator<<(std::ostream& out, const vec3& v){
+    return out << v.e[0] << " " << v.e[1] << " " << v.e[2];
+}
 
+vec3 operator+(const vec3& u, const vec3& v){
+    return vec3(u.e[0]+v.e[0], u.e[1]+v.e[1], u.e[2]+v.e[2]);
+}
 
+vec3 operator-(const vec3& u, const vec3& v){
+    return vec3(u.e[0]-v.e[0], u.e[1]-v.e[1], u.e[2]-v.e[2]);
+}
 
+vec3 operator*(const vec3& u, const vec3& v){
+    return vec3(u.e[0]*v.e[0], u.e[1]*v.e[1], u.e[2]*v.e[2]);
+}
 
+vec3 operator*(const double t, const vec3& v){
+    return vec3(t*v.e[0], t*v.e[1], t*v.e[2]);
+}
 
+vec3 operator*(const vec3& u, const double t){
+    return vec3(t*u.e[0], t*u.e[1], t*u.e[2]);
+}
 
+vec3 operator/(const vec3& u, const double t){
+    return vec3(u.e[0]/t, u.e[1]/t, u.e[2]/t);
+}
 
+double dot(const vec3& u, const vec3& v){
+    return u.e[0]*v.e[0] + u.e[1]*v.e[1] + u.e[2]*v.e[2];
+}
+
+vec3 cross(const vec3& u, const vec3& v){
+    return vec3(u[1]*v[2] - u[2]*v[1], u[2]*v[0] - u[0]*v[2], u[0]*v[1] - u[1]*v[0]);
+}
+
+vec3 unit_vector(const vec3& u){
+    return u/u.length();
+}
 
 
 
