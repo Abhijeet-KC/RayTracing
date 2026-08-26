@@ -13,11 +13,11 @@ void write_color(std::ostream& out, const color& pixel_color){
 
     // color into bytes where the input would be [0, 1] and output would be [0, 255]
     int rbyte = int(255.999 * r);
-    int gbyte = int(255.99 * g);
-    int bbyte = int(255.99 * b);
+    int gbyte = int(255.999 * g);
+    int bbyte = int(255.999 * b);
 
     // show the output colors
-    out << rbyte << ' ' << gbyte << ' ' << bbyte;
+    out << rbyte << ' ' << gbyte << ' ' << bbyte <<"\n";
 }
 
 #endif
